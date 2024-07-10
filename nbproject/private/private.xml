@@ -4,8 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Deivid/Documents/NetBeansProjects/sari_backend/src/sari_backend/Sari_backend.java</file>
-            <file>file:/D:/Deivid/Documents/NetBeansProjects/sari_backend/src/sari_backend/conexion/conexion_base_datos.java</file>
-            <file>file:/D:/Deivid/Documents/NetBeansProjects/sari_backend/src/sari_backend/dispositivos/dispositivos.java</file>
+            <file>file:/D:/Deivid/Documents/NetBeansProjects/sari_backend/src/sari_backend/modulos/Usuario.java</file>
         </group>
     </open-files>
 </project-private>

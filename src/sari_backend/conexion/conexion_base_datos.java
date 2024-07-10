@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class conexion_base_datos {
+public class Conexion_base_datos {
     String url = "jdbc:mysql://localhost:3306/";
     String baseDatos = "sari";
     String usuario = "root";
@@ -19,22 +19,22 @@ public class conexion_base_datos {
     PreparedStatement preparedStatement;
     ResultSet resultSet;
     
-    public conexion_base_datos () {
+    public Conexion_base_datos () {
     }
     
-    public Connection conectar (){
+    public Connection Conectar (){
         try {
             Class.forName(driver);
             conexion = DriverManager.getConnection(url + baseDatos, usuario, clave);
             System.out.println("*****Conexión exitosa a " + baseDatos + "*****");
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("**Error de conexión a base de datos " + baseDatos + "**");
-            Logger.getLogger(conexion_base_datos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Conexion_base_datos.class.getName()).log(Level.SEVERE, null, ex);
         }
         return conexion;
     }
     
-    public ResultSet leerBD (String comando, String columna){
+    public ResultSet Leer_BD (String comando, String columna){
         try {
             preparedStatement = conexion.prepareStatement(comando);
             resultSet = preparedStatement.executeQuery();
@@ -45,49 +45,49 @@ public class conexion_base_datos {
             }
         } catch (SQLException ex) {
             System.out.println("Lectura incorrecta");
-            Logger.getLogger(conexion_base_datos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Conexion_base_datos.class.getName()).log(Level.SEVERE, null, ex);
         }
         return resultSet;
     }
     
-    public void crearBD (String comando){
+    public void Crear_BD (String comando){
         try {
             preparedStatement = conexion.prepareStatement(comando);
             preparedStatement.executeUpdate();
             System.out.println("Creacion correcta");
         } catch (SQLException ex) {
             System.out.println("Creacion incorrecta");
-            Logger.getLogger(conexion_base_datos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Conexion_base_datos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    public void actualizarBD (String comando){
+    public void Actualizar_BD (String comando){
         try {
             preparedStatement = conexion.prepareStatement(comando);
             preparedStatement.executeUpdate();;
             System.out.println("Actualizacion correcta");
         } catch (SQLException ex) {
             System.out.println("Actualizacion incorrecta");
-            Logger.getLogger(conexion_base_datos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Conexion_base_datos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    public void eliminarBD (String comando){
+    public void Eliminar_BD (String comando){
         try {
             preparedStatement = conexion.prepareStatement(comando);
             preparedStatement.executeUpdate();
             System.out.println("Eliminacion correcta");
         } catch (SQLException ex) {
             System.out.println("Eliminacion incorrecta");
-            Logger.getLogger(conexion_base_datos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Conexion_base_datos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    public void desconectar(){
+    public void Desconectar(){
         try {
             conexion.close();
         } catch (SQLException ex) {
-            Logger.getLogger(conexion_base_datos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Conexion_base_datos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
